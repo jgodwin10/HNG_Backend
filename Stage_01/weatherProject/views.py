@@ -16,7 +16,7 @@ def userip(request):
     city = api_result.json()
     cityName = city['city_name']
 
-    weather = requests.get('https://api.openweathermap.org/data/2.5/weather?q={}&appid=3b6cb4536a3f0c99e3d357906ad951f9'.format(cityName))
+    weather = requests.get('https://api.openweathermap.org/data/2.5/weather?q={}&appid=3b6cb4536a3f0c99e3d357906ad951f9&units=metric'.format(cityName))
     temps = weather.json()
    
 
