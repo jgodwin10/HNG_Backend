@@ -31,7 +31,7 @@ def userip(request):
     data = {
         "client_ip": ip,
         "location": cityName,
-        "greeting": f"Hello, {name}!, the temperature is {Temps} degrees celcius in {cityName}"
+        "greeting": f"Hello, {name}!, the temperature is {Temps} degrees Celcius in {cityName}"
     }
     
 
