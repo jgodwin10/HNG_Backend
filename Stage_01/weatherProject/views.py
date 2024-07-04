@@ -16,22 +16,22 @@ def userip(request):
         ip = request.META.get('REMOTE_ADDR')
     
     payload = {'ip': ip, 'format': 'json'}
-    api_result =  requests.get("https://geolocation-db.com/json/{}&position=true".format(ip))
+    api_result =  requests.get('https://api.ip2location.io/', params=payload)
     city = api_result.json()
-    print(ip)
-    cityName = city['city']
+    print(city)
+    cityName = city['city_name']
 
     weather = requests.get('https://api.openweathermap.org/data/2.5/weather?q={}&appid=3b6cb4536a3f0c99e3d357906ad951f9&units=metric'.format(cityName))
     temps = weather.json()
    
-    # print(request.ipinfo.city)
+    # print(temps)
 
     Temps = temps['main']['temp']
 
     data = {
         "client_ip": ip,
         "location": cityName,
-        "greeting": f"Hello, {name}!, the temperature is {Temps} degrees Celcius in {cityName}"
+        "greeting": f"Hello, {name}!, the temperature is {Temps} degrees celcius in {cityName}"
     }
     
 
