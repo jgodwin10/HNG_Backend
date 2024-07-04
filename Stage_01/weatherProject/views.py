@@ -5,6 +5,9 @@ import requests
 
 def userip(request):
     name = request.GET['visitor_name']
+
+    name = name.replace('"', '')
+
     user_ip = request.META.get('HTTP_X_FORWARDED_FOR')
     if user_ip is not None:
         ip = user_ip.split(',')[0]
